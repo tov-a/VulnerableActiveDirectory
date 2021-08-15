@@ -46,6 +46,7 @@ Test-WSMan -ComputerName 192.168.1.10 -Authentication default -Credential $crede
 
 # Finally create a session
 New-PSSession -ComputerName 192.168.1.10 -Credential $credential
+Enter-PSSession -Id 1
 ```
 
 After you'll install Active Directory, you'll need to change the username:
