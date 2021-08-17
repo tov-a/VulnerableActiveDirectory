@@ -86,3 +86,14 @@ Install-ADDSForest -SafeModeAdministratorPassword $safe_mode_pass -DomainName "v
 ```
 
 The password passed to the parameter `SafeModeAdministratorPassword` is for the *Directory Services Restore Mode* (DSRM).
+
+## Copy file through WinRM
+
+I also discovered that you can copy files via WinRM protocol:
+
+```ps1
+# or create it and then assign it with Get-PSSession
+$session = New-PSSession -ComputerName 192.168.1.10 -Credential $credential $credential
+
+Copy-Item -Path .\data\wordlist.txt -Destination 'C:\Users\Administrator\Documents' -ToSession $session
+```

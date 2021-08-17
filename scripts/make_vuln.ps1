@@ -30,10 +30,3 @@ function Add-KerberosPreAuthenticationToSpecificUser {
     $user = Get-ADUser -Identity $SamAccountName
     Add-KerberosPreAuthentication $user.SamAccountName
 }
-
-
-function Get-KerberosPreAuthUsers {
-    get-aduser -filter * -properties DoesNotRequirePreAuth | Where-Object {
-        $_.DoesNotRequirePreAuth -eq "True" -and $_.Enabled -eq "True"
-    } | Select-Object SamAccountName, Name
-}
