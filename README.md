@@ -1,10 +1,12 @@
-# What
+# Vulnerable Active Directory
+
+## About
 
 This repository contains some scripts/notes I took while developing a vulnerable Active Directory environment.
 
-# Details
+## Details
 
-## Setup WinRM
+### Setup WinRM
 
 Initially, I wanted to set up the `WinRM` service, mostly because the clipboard wasn't working and it was annoying.
 
@@ -59,7 +61,7 @@ DC1\Administrator -> VULNERABLE\Administrator
 vulnerable.org\Administrator
 ```
 
-## Set up Active Directory
+### Set up Active Directory
 
 ```ps1
 # List packages (named "features") you can install on your Windows Server
@@ -87,7 +89,7 @@ Install-ADDSForest -SafeModeAdministratorPassword $safe_mode_pass -DomainName "v
 
 The password passed to the parameter `SafeModeAdministratorPassword` is for the *Directory Services Restore Mode* (DSRM).
 
-## Copy file through WinRM
+### Copy files through WinRM
 
 I also discovered that you can copy files via WinRM protocol:
 
