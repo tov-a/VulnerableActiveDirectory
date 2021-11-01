@@ -13,4 +13,3 @@ $safe_mode_pass = ConvertTo-SecureString -String "Passw0rd!" -AsPlainText -Force
 
 # -Force skips the confirmation prompt
 Install-ADDSForest -SafeModeAdministratorPassword $safe_mode_pass -DomainName "vulnerable.org" -DomainMode Win2012R2 -ForestMode Win2012R2 -DomainNetbiosName "VULNERABLE" -DatabasePath "C:\Windows\NTDS" -SysvolPath "C:\Windows\SYSVOL" -LogPath "C:\Windows\NTDS" -InstallDns:$true -Force -NoRebootOnCompletion:$false
-
